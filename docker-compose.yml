@@ -1,0 +1,15 @@
+version: '3'
+services:
+  rstudio:
+    build: .
+    image: tidyverse:latest
+    container_name: tidyverse
+    environment: 
+      - PASSWORD=tidyverse
+    ports:
+      - 8787:8787
+    volumes:
+      - ${PWD}/projects:/home/rstudio
+    working_dir: /home/rstudio
+    tty: true
+    stdin_open: true
